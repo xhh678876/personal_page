@@ -2,8 +2,10 @@
 
 > AI 驅動的下一代學術主頁生成工具 - 支持 Gemini 2.5 Pro 和 GPT-4o Vision
 
-[![Open In Colab - 高級版](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xhh678876/personal_page/blob/main/Advanced_Homepage_Generator_Colab.ipynb)
-[![Open In Colab - Gradio](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xhh678876/personal_page/blob/main/Gradio_Academic_Homepage_Generator.ipynb)
+[![v2 多模板版](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xhh678876/personal_page/blob/main/Homepage_Generator_v2_Colab.ipynb) **← 推薦！4種模板可選**
+
+[![高級版](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xhh678876/personal_page/blob/main/Advanced_Homepage_Generator_Colab.ipynb)
+[![簡化版](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xhh678876/personal_page/blob/main/Gradio_Academic_Homepage_Generator.ipynb)
 
 ---
 
