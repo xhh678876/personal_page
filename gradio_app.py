@@ -474,10 +474,10 @@ def process_resume(pdf_file, provider, api_key, progress=gr.Progress()):
     """處理簡歷並生成主頁"""
     
     if pdf_file is None:
-        return None, "❌ 請上傳 PDF 文件", None
+        return None, None, None, "❌ 請上傳 PDF 文件", None
     
     if not api_key:
-        return None, "❌ 請輸入 API Key", None
+        return None, None, None, "❌ 請輸入 API Key", None
     
     try:
         # 步驟 1: 轉換 PDF
@@ -492,25 +492,39 @@ def process_resume(pdf_file, provider, api_key, progress=gr.Progress()):
             data, error = parse_with_openai(images, api_key)
         
         if error:
-            return None, f"❌ {error}", None
+            return None, None, None, f"❌ {error}", None
         
-        # 步驟 3: 生成 HTML
-        progress(0.8, desc="✨ 正在生成精美主頁...")
-        html = generate_html(data)
+        # 步驟 3: 生成多個主題
+        progress(0.7, desc="✨ 正在生成 3 種精美主頁...")
         
-        # 保存 HTML 文件
-        output_path = "academic_homepage.html"
-        with open(output_path, "w", encoding="utf-8") as f:
-            f.write(html)
+        # 導入模板生成器
+        from template_generator import template_gradient_purple, template_dark_minimal, template_academic_light
+        
+        # 生成各個模板
+        html1 = template_gradient_purple(data)
+        html2 = template_dark_minimal(data)
+        html3 = template_academic_light(data)
+        
+        # 保存文件
+        file1 = "homepage_gradient_purple.html"
+        file2 = "homepage_dark_minimal.html"
+        file3 = "homepage_academic_light.html"
+        
+        with open(file1, "w", encoding="utf-8") as f:
+            f.write(html1)
+        with open(file2, "w", encoding="utf-8") as f:
+            f.write(html2)
+        with open(file3, "w", encoding="utf-8") as f:
+            f.write(html3)
         
         progress(1.0, desc="✅ 完成！")
         
         json_output = json.dumps(data, ensure_ascii=False, indent=2)
         
-        return output_path, "✅ 生成成功！", json_output
+        return file1, file2, file3, "✅ 生成成功！已創建 3 種主題", json_output
         
     except Exception as e:
-        return None, f"❌ 錯誤: {str(e)}", None
+        return None, None, None, f"❌ 錯誤: {str(e)}", None
 
 
 # 創建 Gradio 界面
@@ -524,7 +538,7 @@ with gr.Blocks(title="🎓 學術主頁生成器", theme=gr.themes.Soft()) as de
     2. 輸入 API Key
     3. 上傳簡歷 PDF
     4. 點擊「生成主頁」
-    5. 下載生成的 HTML 文件
+    5. 下載 **3 種不同風格** 的精美主頁！
     """)
     
     with gr.Row():
@@ -549,18 +563,43 @@ with gr.Blocks(title="🎓 學術主頁生成器", theme=gr.themes.Soft()) as de
                 type="filepath"
             )
             
-            submit_btn = gr.Button("✨ 生成主頁", variant="primary", size="lg")
+            submit_btn = gr.Button("✨ 生成 3 種主頁", variant="primary", size="lg")
         
         with gr.Column(scale=1):
             status = gr.Textbox(label="📊 狀態", interactive=False)
-            html_file = gr.File(label="📥 下載生成的主頁")
+            
+            with gr.Tab("🌈 紫色渐變科技風"):
+                html_file1 = gr.File(label="📥 下載主題 1")
+                
+            with gr.Tab("🌑 暗黑極簡風"):
+                html_file2 = gr.File(label="📥 下載主題 2")
+                
+            with gr.Tab("📖 輕簡學術風"):
+                html_file3 = gr.File(label="📥 下載主題 3")
+            
             json_output = gr.Code(label="📋 提取的數據 (JSON)", language="json")
     
     submit_btn.click(
         fn=process_resume,
         inputs=[pdf_file, provider, api_key],
-        outputs=[html_file, status, json_output]
+        outputs=[html_file1, html_file2, html_file3, status, json_output]
     )
+    
+    gr.Markdown("""
+    ---
+    ### 📝 API Key 獲取
+    - **Gemini**（推薦 - 免費）: https://aistudio.google.com/app/apikey
+    - **OpenAI**: https://platform.openai.com/api-keys
+    
+    ### ✨ 3 種精美主題
+    - 🌈 **紫色漸變科技風** - 現代、動感、玻璃態效果
+    - 🌑 **暗黑極簡風** - 酷炫、極客、霓虹賽博風
+    - 📖 **輕簡學術風** - 專業、傳統、經典學術布局
+    
+    **一次生成，3 種選擇，總有一款適合你！** 🎨
+    
+    Made with ❤️ for Researchers
+    """)
     
     gr.Markdown("""
     ---
