@@ -1,229 +1,232 @@
-# 🎓 学术主页生成器 v2.0 Pro
+# 🎓 學術主頁生成器
 
-> AI 驱动的下一代学术主页生成工具 - 支持 Gemini 2.5 Pro 和 GPT-4o Vision
+> AI 驅動的下一代學術主頁生成工具 - 支持 Gemini 2.5 Pro 和 GPT-4o Vision
 
-## 🎉 现已支持桌面应用！
-
-### 四种使用方式
-
-#### 🌐 Google Colab（零安装-推荐新手）
-- **完全免费**：使用 Google 云端资源
-- **零安装**：无需本地 Node.js
-- **一键运行**：打开 Notebook 即用
-- **详细指南**：查看 [Colab使用指南.md](./Colab使用指南.md)
-
-#### 💻 桌面应用（推荐）
-- **独立窗口**：无需浏览器，独立运行
-- **一键启动**：双击 `运行桌面版.bat` / `.sh`
-- **可打包分享**：生成 .exe / .AppImage 安装程序
-
-#### 🌐 网页版
-- **浏览器访问**：双击 `启动.bat` / `启动.sh`
-- **传统方式**：访问 http://localhost:3000
-
-#### 📦 独立软件
-- **打包分发**：双击 `打包成软件.bat` / `.sh`
-- **生成安装程序**：分享给他人使用
-- **无需环境**：对方无需安装 Node.js
+[![Open In Colab - Gradio](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xhh678876/personal_page/blob/main/Gradio_Academic_Homepage_Generator.ipynb)
 
 ---
 
-## ✨ 新增功能（v2.0）
+## 🚀 快速開始（推薦使用 Gradio 版本）
 
-### 🚀 多 AI 提供商支持
+### 🎨 Gradio 版本（最簡單 - 強烈推薦）
 
-- **✅ Google Gemini 2.0 Flash Exp**（推荐）
-  - 免费额度更多
-  - 响应速度更快
-  - 支持多模态理解
-  - [免费获取 API Key →](https://aistudio.google.com/app/apikey)
+**超簡單**：只需運行 2 個單元，1 分鐘開始使用！
 
-- **✅ OpenAI GPT-4o Vision**
-  - 顶级准确性
-  - 更强推理能力
-  - [获取 API Key →](https://platform.openai.com/api-keys)
+1. 點擊上方的 Colab 徽章
+2. Runtime → Run all（僅需 30 秒安裝）
+3. 點擊生成的公網鏈接
+4. 在 Gradio 界面操作：
+   - 選擇 AI 提供商（推薦 Gemini）
+   - 輸入 API Key
+   - 上傳 PDF
+   - 下載生成的 HTML
 
-### 🎨 软件级 UI 体验
+**優勢**：
+- ✅ 純 Python - 無需 Node.js
+- ✅ 自動 UI - Gradio 生成精美界面
+- ✅ 內置分享 - 自動公網鏈接
+- ✅ 超快速 - 1-2 分鐘完成
 
-- 精美的渐变背景和玻璃态效果
-- 流畅的 Framer Motion 动画
-- 直观的 AI 提供商选择卡片
-- 实时处理进度显示
-- 友好的错误提示
+### 📱 Next.js 版本（完整體驗）
 
-## 🚀 快速开始
+如果你想要完整的 Next.js 應用體驗：
 
-### 方法 1：双击启动（推荐）
+1. 打開 [Academic_Homepage_Generator_Colab.ipynb](./Academic_Homepage_Generator_Colab.ipynb)
+2. Runtime → Run all（需要 2-3 分鐘）
+3. 點擊 ngrok 鏈接訪問
 
-直接双击 `启动.bat` 文件即可！
+✨ **兩個版本都完全免費，零安裝！**
 
-脚本会自动：
-1. 检测并安装依赖（首次运行）
-2. 启动开发服务器
+---
 
-### 方法 2：手动命令
+## ✨ 功能特性
+
+### 🤖 雙 AI 提供商支持
+
+- **Gemini 2.5 Pro**（推薦）
+  - 完全免費
+  - 每分鐘 15 次請求
+  - 響應速度快（10-20秒）
+  - [獲取 API Key →](https://aistudio.google.com/app/apikey)
+
+- **GPT-4o Vision**
+  - 頂級準確性
+  - 約 $0.01-0.03/頁
+  - [獲取 API Key →](https://platform.openai.com/api-keys)
+
+### 🎨 炫酷界面
+
+- 深色漸變背景 + 玻璃態效果
+- Framer Motion 流暢動畫
+- 實時處理進度顯示
+- 完全響應式設計
+
+### 📊 智能解析
+
+- 支持任意 PDF 格式簡歷
+- 自動識別章節類型
+- 提取結構化數據
+- 智能分類（教育/出版物/項目等）
+
+### 🎭 動態渲染
+
+- 4 種布局類型：Timeline / Grid / Text / Gallery
+- 自動選擇最佳布局
+- 多主題支持
+
+---
+
+## 💻 本地運行
+
+### Gradio 版本（最簡單）
 
 ```bash
-# 安装依赖
-npm install
+# 安裝依賴
+pip install -r requirements_gradio.txt
 
-# 启动开发服务器
-npm run dev
+# 運行
+python gradio_app.py
+
+# 瀏覽器自動打開，或訪問顯示的鏈接
 ```
 
-然后打开浏览器访问 **http://localhost:3000**
+**需要**: Python 3.8+
 
-## 📖 使用指南
+### Next.js 版本（完整功能）
 
-### 1. 获取 API Key
+**Windows**:
+```bash
+# 網頁版
+雙擊 啟動.bat
 
-**推荐使用 Gemini（免费额度充足）：**
-1. 访问 https://aistudio.google.com/app/apikey
-2. 登录 Google 账号
-3. 点击「Create API Key」
-4. 复制生成的 Key（格式：`AIzaSy...`）
+# 桌面應用
+雙擊 運行桌面版.bat
 
-**或使用 OpenAI：**
-1. 访问 https://platform.openai.com/api-keys
-2. 创建新密钥（需要付费账户）
-3. 复制密钥（格式：`sk-proj-...`）
-
-### 2. 上传简历
-
-1. 选择 AI 提供商（Gemini / OpenAI）
-2. 输入 API Key
-3. 上传学术简历 PDF
-4. 等待 10-30 秒
-5. 查看生成的精美学术主页！
-
-### 3. 支持的简历格式
-
-✅ 单列传统学术 CV  
-✅ 双列现代设计  
-✅ 创意图形简历  
-✅ 多页学术简历（建议 < 10 页）  
-✅ 中英文混合  
-
-## 🎯 核心功能
-
-### AI 自动识别
-
-系统会自动识别以下章节：
-- 📚 教育背景
-- 📝 学术出版物
-- 💼 工作经历
-- 🔬 研究项目
-- 🏆 奖项荣誉
-- 📜 专利
-- 🎤 演讲/报告
-- 👨‍🏫 教学经历
-- 🛠️ 技能认证
-- ...以及任意自定义章节
-
-### 智能布局选择
-
-AI 会根据内容自动选择最佳布局：
-- **时间线**：教育、工作经历
-- **卡片网格**：出版物、项目
-- **文本块**：个人简介、研究兴趣
-- **图库**：海报、照片
-
-### 响应式设计
-
-- 📱 完美适配移动端
-- 💻 优化桌面体验
-- 🎨 多主题支持（Bento、Minimal、Cyber、Academic）
-
-## 💰 成本参考
-
-### Gemini 2.0 Flash Exp（推荐）
-- **免费额度**：每分钟 15 次请求
-- **成本**：完全免费（当前）
-- **速度**：非常快
-
-### GPT-4o Vision
-- **成本**：约 $0.01-0.03 / 页
-- **10 页简历**：约 $0.10-0.30
-- **速度**：较快
-
-## 📁 项目结构
-
-```
-d:/project/
-├── app/
-│   ├── actions/parseResume.ts    # 多提供商 AI 解析
-│   ├── page.tsx                  # 主界面
-│   ├── layout.tsx                # 布局
-│   └── globals.css               # 全局样式
-├── components/builder/           # 渲染组件
-│   ├── PageBuilder.tsx
-│   ├── SectionRenderer.tsx
-│   ├── TimelineSection.tsx
-│   ├── GridListSection.tsx
-│   ├── TextContentSection.tsx
-│   └── GallerySection.tsx
-├── hooks/usePdfToImage.ts        # PDF 转换
-├── lib/schema.ts                 # 数据模型
-├── 启动.bat                      # 一键启动脚本
-└── package.json                  # 项目配置
+# 打包軟件
+雙擊 打包成軟件.bat
 ```
 
-## 🔧 技术栈
+**Linux/macOS**:
+```bash
+# 添加執行權限
+chmod +x *.sh
+
+# 網頁版
+./啟動.sh
+
+# 桌面應用
+./運行桌面版.sh
+
+# 打包軟件
+./打包成軟件.sh
+```
+
+**需要**: Node.js 18+
+
+---
+
+## 📦 打包分發
+
+### Windows
+生成 `.exe` 安裝程序
+
+### Linux
+生成多種格式：
+- `.AppImage` - 通用格式
+- `.deb` - Ubuntu/Debian
+- `.rpm` - Fedora/RedHat
+
+---
+
+## 🌐 生產部署
+
+### Vercel（推薦-免費）
+
+```bash
+npm i -g vercel
+vercel --prod
+```
+
+一鍵部署，獲得永久域名。
+
+---
+
+## 📚 項目結構
+
+```
+personal_page/
+├──app/actions/ parseResume.ts          # Vision AI 解析
+├── components/builder/                  # 動態渲染器
+│   ├── PageBuilder.tsx                 # 主頁構建器
+│   ├── TimelineSection.tsx             # 時間線布局
+│   ├── GridListSection.tsx             # 網格布局
+│   ├── TextContentSection.tsx          # 文本布局
+│   └── GallerySection.tsx              # 畫廊布局
+├── hooks/usePdfToImage.ts              # PDF 轉圖片
+├── lib/schema.ts                        # 數據模型
+├── Academic_Homepage_Generator_Colab.ipynb  # Colab Notebook
+├── 啟動.bat / 啟動.sh                   # 啟動腳本
+└── README.md                            # 本文件
+```
+
+---
+
+## 🎯 使用流程
+
+1. **選擇 AI 提供商**（Gemini / OpenAI）
+2. **輸入 API Key**
+3. **上傳簡歷 PDF**
+4. **等待 AI 解析**（10-30秒）
+5. **查看生成的精美主頁**！
+
+---
+
+## 📖 詳細文檔
+
+- 📘 [Colab使用指南.md](./Colab使用指南.md) - Colab 詳細教程
+- 📘 [安裝運行指南.md](./安裝運行指南.md) - Windows 指南
+- 📘 [Linux使用指南.md](./Linux使用指南.md) - Linux 指南
+- 📘 [打包指南.md](./打包指南.md) - 軟件打包教程
+- 📘 [GitHub上傳指南.md](./GitHub上傳指南.md) - GitHub 操作指南
+
+---
+
+## 🔧 技術棧
 
 - **框架**: Next.js 14 (App Router)
-- **语言**: TypeScript
-- **样式**: Tailwind CSS
-- **动画**: Framer Motion
+- **語言**: TypeScript
+- **樣式**: Tailwind CSS
+- **動畫**: Framer Motion
 - **AI SDK**: Vercel AI SDK
   - `@ai-sdk/google` (Gemini)
   - `@ai-sdk/openai` (GPT-4o)
-- **验证**: Zod
+- **驗證**: Zod
 - **PDF**: pdfjs-dist
+- **桌面**: Electron
 
-## 🔐 隐私与安全
+---
 
-- ✅ API Key 仅在运行时使用，**不存储**
-- ✅ PDF 在浏览器端处理，**不上传服务器**
-- ✅ 生成的数据仅在本地，**不外传**
-- ⚠️ 生产环境请使用 HTTPS
+## 📊 部署對比
 
-## 🐛 常见问题
+| 方案 | 成本 | 安裝難度 | 適用場景 |
+|------|------|---------|---------|
+| Google Colab | 🆓 | ⭐ 極簡 | 臨時使用、測試 |
+| 本地網頁 | 🆓 | ⭐⭐ 簡單 | 開發、調試 |
+| 桌面應用 | 🆓 | ⭐⭐ 簡單 | 日常使用 |
+| 獨立軟件 | 🆓 | ⭐⭐⭐ 中等 | 分享他人 |
+| Vercel | 🆓 | ⭐⭐ 簡單 | 生產環境 |
 
-### Q: 依赖安装失败？
-使用国内镜像：
-```bash
-npm install --registry=https://registry.npmmirror.com
-```
+---
 
-### Q: API 调用失败？
-检查：
-1. API Key 格式是否正确
-2. 网络连接是否正常
-3. API 账户是否有额度
+## 🤝 貢獻
 
-### Q: PDF 解析不准确？
-建议：
-1. 确保 PDF 文本清晰可读
-2. 避免纯图片扫描版
-3. 尝试切换不同的 AI 提供商
+歡迎提交 Issue 和 Pull Request！
 
-## 📝 更新日志
+---
 
-### v2.0 (2025-12-14)
-- ✨ 新增 Gemini 2.5 Pro 支持
-- 🎨 全新软件级 UI 设计
-- 🚀 优化处理流程和状态显示
-- 📦 添加一键启动脚本
+## 📄 License
 
-### v1.0 (2025-12-14)
-- 🎉 首次发布
-- 🤖 GPT-4o Vision 解析
-- 📊 动态章节渲染
-- 🎭 Framer Motion 动画
-
-## 🤝 支持
-
-如有问题，欢迎反馈！
+MIT License
 
 ---
 
