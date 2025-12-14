@@ -21,16 +21,9 @@ import os
 def pdf_to_images(pdf_file):
     """將 PDF 轉換為圖片列表"""
     try:
-        # 保存上傳的文件到臨時位置
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
-            tmp_file.write(pdf_file)
-            tmp_path = tmp_file.name
-        
+        # Gradio 傳入的 pdf_file 是文件路徑字符串，直接使用即可
         # 轉換 PDF 為圖片
-        images = convert_from_path(tmp_path, dpi=150)
-        
-        # 清理臨時文件
-        os.unlink(tmp_path)
+        images = convert_from_path(pdf_file, dpi=150)
         
         return images
     except Exception as e:
