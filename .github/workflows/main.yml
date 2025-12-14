@@ -1,0 +1,17 @@
+name: 學術主頁生成器
+run-name: ${{ github.actor }} - 上傳新版本
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 專案自動部署已觸發"
+      - run: echo "🐧 伺服器系統: ${{ runner.os }}"
+      - run: echo "🔀 分支: ${{ github.ref }}"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 ${{ github.repository }} 倉庫已克隆"
+      - run: echo "✅ 專案文件已準備就緒"
+      - name: List files in the repository
+        run: |
+          ls $
